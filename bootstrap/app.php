@@ -12,11 +12,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // Mendaftarkan alias middleware role untuk MADOK
-        $middleware->alias([
-            'role' => EnsureRole::class,
-        ]);
-    })
+    $middleware->trustProxies(at: '*');
+})
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

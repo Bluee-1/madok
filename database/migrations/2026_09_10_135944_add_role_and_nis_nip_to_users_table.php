@@ -8,16 +8,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('nis_nip', 30)->nullable()->unique()->after('name');
-            $table->enum('role', ['admin', 'siswa'])->default('siswa')->after('password');
-        });
+        // Dikosongkan karena kolom role & nis_nip sudah dibuat di tabel users
     }
 
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['nis_nip', 'role']);
-        });
+        //
     }
 };
